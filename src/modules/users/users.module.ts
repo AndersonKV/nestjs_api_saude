@@ -1,11 +1,19 @@
 import { Module } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { UsersController } from './users.controller';
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { UsersUpdateService } from './service/users.update.service';
+import { UsersController } from './controller/users.controller';
 import { PrismaService } from 'src/database/PrismaService';
+import { UsersCreateService } from './service/users.create.service';
+import { UsersFindService } from './service/users.find.service';
+import { UsersDeleteService } from './service/users.delete.service';
 
 @Module({
   controllers: [UsersController],
-  providers: [UsersService, PrismaService],
+  providers: [
+    UsersCreateService,
+    UsersFindService,
+    UsersDeleteService,
+    UsersUpdateService,
+    PrismaService,
+  ],
 })
 export class UsersModule { }
