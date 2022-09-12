@@ -24,14 +24,5 @@ export class UsersFindService {
 
         return user;
 
-        // return await this.prisma.user
-        //     .findFirst({
-        //         where: {
-        //             id,
-        //         },
-        //     })
-        //     .catch((err) => {
-        //         throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
-        //     });
     }
 }

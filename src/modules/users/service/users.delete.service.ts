@@ -3,9 +3,13 @@ import { PrismaService } from 'src/database/PrismaService';
 
 @Injectable()
 export class UsersDeleteService {
-  constructor(private prisma: PrismaService) {}
+  constructor(private prisma: PrismaService) { }
 
-  deleteById(id: number) {
-    return `This action removes a #${id} user`;
+  async deleteById(id: number) {
+    return await this.prisma.user.deleteMany({ where: { id } });
+  }
+
+  async destroyer() {
+    await this.prisma.user.deleteMany({});
   }
 }

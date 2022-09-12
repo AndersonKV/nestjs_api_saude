@@ -14,4 +14,8 @@ export class MessageDeleteService {
             throw new HttpException(`${id} não encontrado`, HttpStatus.BAD_REQUEST);
         }
     }
+
+    async destroyer() {
+        await this.prisma.message.deleteMany({})
+    }
 }

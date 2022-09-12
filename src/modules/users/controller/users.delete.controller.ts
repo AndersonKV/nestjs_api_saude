@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
     Controller,
     Get,
@@ -9,6 +10,7 @@ import {
     UseFilters,
     HttpException,
     HttpStatus,
+    HttpCode,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
@@ -20,18 +22,17 @@ import { HttpExceptionFilter } from '../../../config/exception/HttpExceptionFilt
 
 @Controller('users')
 export class UsersDeleteController {
-    constructor(
-        private readonly usersUpdateService: UsersUpdateService,
-        private readonly usersDeleteService: UsersDeleteService,
-    ) { }
+    constructor(private readonly usersDeleteService: UsersDeleteService) { }
 
-    @Patch('update/:id')
-    update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-        return this.usersUpdateService.update(+id, updateUserDto);
-    }
-
+    @HttpCode(202)
     @Delete('delete_by_id/:id')
     deleteById(@Param('id') id: string) {
         return this.usersDeleteService.deleteById(+id);
+    }
+
+    @HttpCode(202)
+    @Delete('destroyer')
+    destroyer() {
+        return this.usersDeleteService.destroyer();
     }
 }
