@@ -19,7 +19,6 @@ export class MessageCreateService {
             message,
             userId,
             created_at: new Date(),
-            updated_at: new Date(),
         };
 
         return await this.prisma.message.create({ data }).catch((err) => {
