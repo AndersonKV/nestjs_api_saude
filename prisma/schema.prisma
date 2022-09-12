@@ -25,7 +25,6 @@ model User {
 model Message {
   id         Int      @id @default(autoincrement())
   message    String
-  date       DateTime
   created_at DateTime
 
   User   User? @relation(fields: [userId], references: [id])

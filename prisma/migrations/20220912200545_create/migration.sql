@@ -19,7 +19,6 @@ CREATE TABLE "User" (
 CREATE TABLE "Message" (
     "id" SERIAL NOT NULL,
     "message" TEXT NOT NULL,
-    "date" TIMESTAMP(3) NOT NULL,
     "created_at" TIMESTAMP(3) NOT NULL,
     "userId" INTEGER,
 
