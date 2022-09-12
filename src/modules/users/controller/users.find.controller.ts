@@ -1,14 +1,14 @@
 import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  Patch,
-  Param,
-  Delete,
-  UseFilters,
-  HttpException,
-  HttpStatus,
+    Controller,
+    Get,
+    Post,
+    Body,
+    Patch,
+    Param,
+    Delete,
+    UseFilters,
+    HttpException,
+    HttpStatus,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
@@ -19,11 +19,16 @@ import { UsersUpdateService } from '../service/users.update.service';
 import { HttpExceptionFilter } from '../../../config/exception/HttpExceptionFilter';
 
 @Controller('users')
-export class UsersCreateController {
-  constructor(private readonly usersCreateService: UsersCreateService) { }
+export class UsersFindController {
+    constructor(private readonly usersFindService: UsersFindService) { }
 
-  @Post('create')
-  create(@Body() createUserDto: CreateUserDto) {
-    return this.usersCreateService.create(createUserDto);
-  }
+    @Get('find_all')
+    findAll() {
+        return this.usersFindService.findAll();
+    }
+
+    @Get('find_by_id/:id')
+    findById(@Param('id') id: number) {
+        return this.usersFindService.findById(+id);
+    }
 }

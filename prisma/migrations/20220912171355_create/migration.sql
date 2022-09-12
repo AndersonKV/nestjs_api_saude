@@ -1,12 +1,16 @@
+-- CreateEnum
+CREATE TYPE "SexEnum" AS ENUM ('Men', 'Woman', 'Other');
+
 -- CreateTable
 CREATE TABLE "User" (
     "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
-    "sex" TEXT NOT NULL,
-    "birthDate" TEXT NOT NULL,
-    "date" TIMESTAMP(3) NOT NULL,
-    "updateDate" TIMESTAMP(3) NOT NULL,
+    "password" TEXT NOT NULL,
+    "sex" "SexEnum" NOT NULL,
+    "birth_date" TEXT NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL,
+    "updated_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -16,7 +20,7 @@ CREATE TABLE "Message" (
     "id" SERIAL NOT NULL,
     "message" TEXT NOT NULL,
     "date" TIMESTAMP(3) NOT NULL,
-    "updateDate" TIMESTAMP(3) NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL,
     "userId" INTEGER,
 
     CONSTRAINT "Message_pkey" PRIMARY KEY ("id")

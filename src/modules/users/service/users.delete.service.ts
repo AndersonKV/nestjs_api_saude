@@ -3,9 +3,9 @@ import { PrismaService } from 'src/database/PrismaService';
 
 @Injectable()
 export class UsersDeleteService {
-    constructor(private prisma: PrismaService) { }
+  constructor(private prisma: PrismaService) {}
 
-    deleteById(id: number) {
-        return `This action removes a #${id} user`;
-    }
+  deleteById(id: number) {
+    return `This action removes a #${id} user`;
+  }
 }
