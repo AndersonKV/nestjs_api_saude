@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
+import { SexEnum } from '@prisma/client';
 import { IsEmail, IsEnum, IsNotEmpty, MinLength, IsDate } from 'class-validator';
-import { SexEnum } from 'src/utils/utils.enum';
 
 export class CreateUserDto {
+
     @MinLength(1, { message: 'Nome não pode estar vazio', })
     name: string;
 

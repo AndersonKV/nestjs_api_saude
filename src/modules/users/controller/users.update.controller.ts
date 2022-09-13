@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Body, Patch, Param } from '@nestjs/common';
+import { Controller, Body, Put, Param, HttpCode } from '@nestjs/common';
 import { UpdateUserDto } from '../dto/update-user.dto';
 import { UsersUpdateService } from '../service/users.update.service';
 
@@ -7,7 +7,8 @@ import { UsersUpdateService } from '../service/users.update.service';
 export class UsersUpdateController {
     constructor(private readonly usersUpdateService: UsersUpdateService) { }
 
-    @Patch('update/:id')
+    @HttpCode(202)
+    @Put('update/:id')
     update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
         return this.usersUpdateService.update(+id, updateUserDto);
     }

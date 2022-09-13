@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
     Controller,
     Get,
@@ -9,6 +10,7 @@ import {
     UseFilters,
     HttpException,
     HttpStatus,
+    HttpCode,
 } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
 import { UpdateUserDto } from '../dto/update-user.dto';
@@ -22,11 +24,14 @@ import { HttpExceptionFilter } from '../../../config/exception/HttpExceptionFilt
 export class UsersFindController {
     constructor(private readonly usersFindService: UsersFindService) { }
 
+    @HttpCode(202)
     @Get('find_all')
     findAll() {
         return this.usersFindService.findAll();
     }
 
+
+    @HttpCode(202)
     @Get('find_by_id/:id')
     findById(@Param('id') id: number) {
         return this.usersFindService.findById(+id);
