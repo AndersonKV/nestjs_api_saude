@@ -18,6 +18,8 @@ export class MessageFindController {
         return null;
     }
 
+
+
     @HttpCode(202)
     @Get('last_messages')
     findLastMessages() {

@@ -12,4 +12,10 @@ export class UsersController {
     create(@Body() createUserDto: CreateUserDto) {
         return this.usersCreateService.create(createUserDto);
     }
+
+    // @HttpCode(201)
+    // @Post('create')
+    // create(@Body() createUserDto: CreateUserDto) {
+    //     return this.usersCreateService.create(createUserDto);
+    // }
 }
