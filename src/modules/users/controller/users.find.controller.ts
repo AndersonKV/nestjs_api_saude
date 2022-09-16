@@ -19,6 +19,7 @@ import { UsersDeleteService } from '../service/users.delete.service';
 import { UsersFindService } from '../service/users.find.service';
 import { UsersUpdateService } from '../service/users.update.service';
 import { HttpExceptionFilter } from '../../../config/exception/HttpExceptionFilter';
+import { query } from 'express';
 
 @Controller('users')
 export class UsersFindController {
@@ -35,5 +36,11 @@ export class UsersFindController {
     @Get('find_by_id/:id')
     findById(@Param('id') id: number) {
         return this.usersFindService.findById(+id);
+    }
+
+    @HttpCode(202)
+    @Get('find_email/find_email')
+    findByEmail(@Param('find_email') email: string) {
+        return email
     }
 }
