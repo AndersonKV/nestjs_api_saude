@@ -13,6 +13,12 @@ export class MessageFindController {
     }
 
     @HttpCode(202)
+    @Get('find_by_mail')
+    findByEmail(@Body() createMessageDto: CreateMessageDto) {
+        return null;
+    }
+
+    @HttpCode(202)
     @Get('last_messages')
     findLastMessages() {
         return this.messageFindService.findLastMessages();

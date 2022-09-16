@@ -7,7 +7,7 @@ import { UpdateUserDto } from '../dto/update-user.dto';
 export class UsersUpdateService {
   constructor(private prisma: PrismaService) { }
 
-  async update(id: number, data: UpdateUserDto) {
+  async update(id: number, update: UpdateUserDto) {
     try {
       const userExist = await this.prisma.user.findUnique({ where: { id } });
 
@@ -16,14 +16,20 @@ export class UsersUpdateService {
       }
 
 
-      if (data.email) {
+      if (update.email) {
         const find = await this.prisma.user.findMany({
-          where: { email: data.email },
+          where: { email: update.email },
         })
+
 
         if (find)
           throw new HttpException('email já existe', HttpStatus.BAD_REQUEST);
 
+      }
+
+      const data = {
+        ...update,
+        updated_at: new Date(),
       }
 
       return await this.prisma.user.update({ where: { id }, data });
