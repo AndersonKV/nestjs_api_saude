@@ -4,5 +4,7 @@
     
 
  
-  "prettier/prettier": ["error", { "endOfLine": "off" }]  
+  "prettier/prettier": ["error", { "endOfLine": "off", 
+   "useTabs": false
+  }]  
 }

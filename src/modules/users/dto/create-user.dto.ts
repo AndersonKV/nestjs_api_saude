@@ -1,8 +1,27 @@
-/* eslint-disable prettier/prettier */
 import { SexEnum } from '@prisma/client';
-import { IsEmail, IsEnum, IsNotEmpty, MinLength, IsDate } from 'class-validator';
+import { IsEmail, IsEnum, IsNotEmpty, MinLength, } from 'class-validator';
+import e from 'express';
 
+interface Props {
+    name: string;
+    password: string;
+    email: string;
+    sex: SexEnum;
+    birth_date: string;
+}
+
+interface ICreateDTO {
+    name: string;
+    password: string;
+    email: string;
+    sex: SexEnum;
+    created_at: Date;
+    updated_at: Date;
+
+
+}
 export class CreateUserDto {
+    private props: ICreateDTO;
 
     @MinLength(1, { message: 'Nome não pode estar vazio', })
     name: string;
@@ -16,10 +35,11 @@ export class CreateUserDto {
     @IsEnum(SexEnum, { message: "Error ao escolher genero" })
     sex: SexEnum;
 
-    @IsNotEmpty()
+    @IsNotEmpty({ message: 'data de nascimento não pode estar vazio' })
     birth_date: string;
 
-    created_at?: Date;
-    updated_at?: Date;
+    readonly created_at = new Date();
+    readonly updated_at = new Date();
+
 }
 
