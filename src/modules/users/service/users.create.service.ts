@@ -9,13 +9,13 @@ export class UsersCreateService {
 
     async create({ birth_date, email, name, password, sex }: CreateUserDto) {
 
-        const findByEmail = await this.prisma.user.findMany({
+        const findByEmail = await this.prisma.user.findUnique({
             where: {
                 email
             }
         })
 
-        if (findByEmail.length) {
+        if (findByEmail) {
             throw new HttpException('email já registrado', HttpStatus.BAD_REQUEST);
         }
 

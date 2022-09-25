@@ -17,12 +17,10 @@ export class UsersFindService {
             },
         });
 
-
         if (!user?.id) {
             throw new HttpException("Usuario não registrado", HttpStatus.BAD_REQUEST);
         }
 
         return user;
-
     }
 }

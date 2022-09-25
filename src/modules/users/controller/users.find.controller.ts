@@ -38,9 +38,5 @@ export class UsersFindController {
         return this.usersFindService.findById(+id);
     }
 
-    @HttpCode(202)
-    @Get('find_email/find_email')
-    findByEmail(@Param('find_email') email: string) {
-        return email
-    }
+
 }

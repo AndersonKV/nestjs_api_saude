@@ -10,18 +10,8 @@ interface Props {
     birth_date: string;
 }
 
-interface ICreateDTO {
-    name: string;
-    password: string;
-    email: string;
-    sex: SexEnum;
-    created_at: Date;
-    updated_at: Date;
 
-
-}
 export class CreateUserDto {
-    private props: ICreateDTO;
 
     @MinLength(1, { message: 'Nome não pode estar vazio', })
     name: string;
