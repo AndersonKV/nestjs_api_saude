@@ -3,7 +3,7 @@ import { CreateUserDto } from '../dto/create-user.dto';
 import { UsersCreateService } from '../service/users.create.service';
 
 @Controller('users')
-export class UsersController {
+export class UsersCreateController {
     constructor(private readonly usersCreateService: UsersCreateService) { }
 
     @HttpCode(201)

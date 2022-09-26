@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { CreateMessageDto } from '../dto/create-message.dto';
 import { MessageCreateService } from '../service/message.create.service';
