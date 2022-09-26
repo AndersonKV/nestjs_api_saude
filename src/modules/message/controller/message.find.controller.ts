@@ -1,9 +1,4 @@
-import {
-    Controller,
-    Get,
-    Param,
-    HttpCode,
-} from '@nestjs/common';
+import { Controller, Get, Param, HttpCode } from '@nestjs/common';
 import { MessageFindService } from '../service/message.find.service';
 
 @Controller('message')

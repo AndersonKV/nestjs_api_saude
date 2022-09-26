@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpCode } from '@nestjs/common';
+import { Controller, Param, Delete, HttpCode } from '@nestjs/common';
 import { MessageDeleteService } from '../service/message.delete.service';
 
 @Controller('message')
@@ -10,7 +10,6 @@ export class MessageDeleteController {
     deleteById(@Param('id') id: string) {
         return this.messageDeleteService.deleteById(+id);
     }
-
 
     @HttpCode(202)
     @Delete('destroyer')

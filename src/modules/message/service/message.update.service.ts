@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../database/PrismaService';
-import { CreateMessageDto } from '../dto/create-message.dto';
 import { UpdateMessageDto } from '../dto/update-message.dto';
 
 @Injectable()
@@ -9,7 +8,7 @@ export class MessageUpdateService {
 
     async update(id: number, update: UpdateMessageDto) {
 
-        const userExist = await this.prisma.user.findFirstOrThrow({ where: { id } }).catch(_ => {
+        await this.prisma.user.findFirstOrThrow({ where: { id } }).catch(_ => {
             throw new HttpException('id não encontrando ' + id, HttpStatus.BAD_REQUEST);
         });
 

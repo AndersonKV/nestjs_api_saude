@@ -1,6 +1,5 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../database/PrismaService';
-import { CreateMessageDto } from '../dto/create-message.dto';
 
 @Injectable()
 export class MessageDeleteService {
