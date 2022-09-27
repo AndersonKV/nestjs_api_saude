@@ -6,7 +6,11 @@ export class UserDeleteService {
   constructor(private prisma: PrismaService) { }
 
   async deleteById(id: number) {
-    return await this.prisma.user.deleteMany({ where: { id } });
+    await this.prisma.user.delete({
+      where: { id },
+    }).catch(_ => {
+      throw new HttpException("id não encontrado", HttpStatus.BAD_REQUEST);
+    });
   }
 
   async destroyer() {

@@ -24,13 +24,16 @@ export class UserUpdateService {
       }
     }
 
+
     const data = {
       ...update,
       updated_at: new Date()
     }
 
+
     return await this.prisma.user.update({ where: { id }, data }).catch((err) => {
       throw new HttpException(err.message, HttpStatus.BAD_REQUEST);
     });
+
   }
 }
