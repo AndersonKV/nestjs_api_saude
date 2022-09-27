@@ -1,10 +1,10 @@
 import { Controller, Get, Param, HttpCode } from '@nestjs/common';
 
-import { UsersFindService } from '../service/users.find.service';
+import { UserFindService } from '../service/user.find.service';
 
 @Controller('users')
-export class UsersFindController {
-    constructor(private readonly usersFindService: UsersFindService) { }
+export class UserFindController {
+    constructor(private readonly usersFindService: UserFindService) { }
 
     @HttpCode(202)
     @Get('find_all')

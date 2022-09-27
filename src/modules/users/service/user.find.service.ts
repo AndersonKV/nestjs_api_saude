@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../database/PrismaService';
 
 @Injectable()
-export class UsersFindService {
+export class UserFindService {
     constructor(private prisma: PrismaService) { }
 
     findAll() {

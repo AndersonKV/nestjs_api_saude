@@ -1,10 +1,10 @@
 import { Controller, Post, Body, HttpCode } from '@nestjs/common';
 import { CreateUserDto } from '../dto/create-user.dto';
-import { UsersCreateService } from '../service/users.create.service';
+import { UserCreateService } from '../service/user.screate.service';
 
 @Controller('users')
-export class UsersCreateController {
-    constructor(private readonly usersCreateService: UsersCreateService) { }
+export class UserCreateController {
+    constructor(private readonly usersCreateService: UserCreateService) { }
 
     @HttpCode(201)
     @Post('create')

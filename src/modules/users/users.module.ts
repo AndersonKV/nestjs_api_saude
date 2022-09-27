@@ -1,26 +1,26 @@
 import { Module } from '@nestjs/common';
-import { UsersUpdateService } from './service/users.update.service';
+import { UserUpdateService } from './service/user.update.service';
 import { PrismaService } from '../../database/PrismaService';
-import { UsersCreateService } from './service/users.create.service';
-import { UsersFindService } from './service/users.find.service';
-import { UsersDeleteService } from './service/users.delete.service';
-import { UsersFindController } from './controller/users.find.controller';
-import { UsersUpdateController } from './controller/users.update.controller';
-import { UsersDeleteController } from './controller/users.delete.controller';
-import { UsersCreateController } from './controller/users.create.controller';
+import { UserCreateService } from './service/user.screate.service';
+import { UserFindService } from './service/user.find.service';
+import { UserDeleteService } from './service/user.delete.service';
+import { UserFindController } from './controller/user.find.controller';
+import { UserUpdateController } from './controller/user.update.controller';
+import { UserDeleteController } from './controller/user.delete.controller';
+import { UserCreateController } from './controller/user.create.controller';
 
 @Module({
   controllers: [
-    UsersCreateController,
-    UsersFindController,
-    UsersUpdateController,
-    UsersDeleteController,
+    UserCreateController,
+    UserFindController,
+    UserUpdateController,
+    UserDeleteController,
   ],
   providers: [
-    UsersCreateService,
-    UsersFindService,
-    UsersDeleteService,
-    UsersUpdateService,
+    UserCreateService,
+    UserFindService,
+    UserDeleteService,
+    UserUpdateService,
     PrismaService,
   ],
 })

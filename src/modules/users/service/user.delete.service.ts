@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaService } from '../../../database/PrismaService';
 
 @Injectable()
-export class UsersDeleteService {
+export class UserDeleteService {
   constructor(private prisma: PrismaService) { }
 
   async deleteById(id: number) {

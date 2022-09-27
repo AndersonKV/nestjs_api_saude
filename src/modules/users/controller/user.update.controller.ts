@@ -1,10 +1,10 @@
 import { Controller, Body, Put, Param, HttpCode } from '@nestjs/common';
 import { UpdateUserDto } from '../dto/update-user.dto';
-import { UsersUpdateService } from '../service/users.update.service';
+import { UserUpdateService } from '../service/user.update.service';
 
 @Controller('users')
-export class UsersUpdateController {
-    constructor(private readonly usersUpdateService: UsersUpdateService) { }
+export class UserUpdateController {
+    constructor(private readonly usersUpdateService: UserUpdateService) { }
 
     @HttpCode(202)
     @Put('update/:id')

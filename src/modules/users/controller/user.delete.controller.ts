@@ -1,10 +1,10 @@
 import { Controller, Param, Delete, HttpCode } from '@nestjs/common';
 
-import { UsersDeleteService } from '../service/users.delete.service';
+import { UserDeleteService } from '../service/user.delete.service';
 
 @Controller('users')
-export class UsersDeleteController {
-    constructor(private readonly usersDeleteService: UsersDeleteService) { }
+export class UserDeleteController {
+    constructor(private readonly usersDeleteService: UserDeleteService) { }
 
     @HttpCode(202)
     @Delete('delete_by_id/:id')
